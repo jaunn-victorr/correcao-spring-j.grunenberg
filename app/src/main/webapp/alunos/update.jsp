@@ -11,10 +11,10 @@
     <body>
         <main class="container">
             <h1>Editar Aluno</h1>
-            <form action="/alunos/insert" method="post">
+            <form action="/alunos/update" method="post">
                 <div class="form-group">
                     <label for="nome">Nome</label>
-                    <input class="form-control" type="text" name="nome" placeholder="Nome do Gênero" />
+                    <input class="form-control" type="text" name="nome" value="${aluno.nome}" placeholder="Nome do Gênero" />
                 </div>
                 <div class="form-group">
                     <label for="idade">Idade</label>
