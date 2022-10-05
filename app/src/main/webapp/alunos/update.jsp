@@ -12,13 +12,14 @@
         <main class="container">
             <h1>Editar Aluno</h1>
             <form action="/alunos/update" method="post">
+                <input type="hidden" value="${aluno.id}" name="id"/>
                 <div class="form-group">
                     <label for="nome">Nome</label>
                     <input class="form-control" type="text" name="nome" value="${aluno.nome}" placeholder="Nome do Gênero" />
                 </div>
                 <div class="form-group">
                     <label for="idade">Idade</label>
-                    <input class="form-control" type="number" name="idade" />
+                    <input class="form-control" type="number" value="${aluno.idade}" name="idade" />
                 </div>
                 <br />
                 <a class="btn btn-primary" href="/alunos/list">Voltar</a>
