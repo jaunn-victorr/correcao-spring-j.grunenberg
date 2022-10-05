@@ -1,8 +1,11 @@
 package esllenlicurgo.controllers;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -22,8 +25,8 @@ public class AlunosController {
         return "list";
     }
 
-    @RequestMapping("insert")
-    public String insert() {
+    @RequestMapping("insert/{id}")
+    public String insert(@PathVariable int id) {
         return "insert";
     }
         
@@ -36,8 +39,9 @@ public class AlunosController {
         return "redirect:/alunos/list";
     }
 
-    @RequestMapping("update")
+    @RequestMapping("update/{id}")
     public String update() {
+        Optional<Aluno> aluno = alunosRepo.findById(id);
         return "update";
     }
 } 
