@@ -43,4 +43,17 @@ public class AlunosController {
         model.addAttribute("aluno",aluno);
         return "update";
     }
+
+    public String saveupdate(
+    @RequestParam("nome") String nome, 
+    @RequestParam("idade") int Idade, 
+    @RequestParam("id") int id){
+        
+        Optional<Aluno> aluno = alunosRepo.findById(id);
+        aluno.get().setNome(nome);
+        aluno.get().setIdade(idade);
+        alunosRepo.save(aluno.get());
+        return "redirect:/alunos/list";
+
+    }
 } 
