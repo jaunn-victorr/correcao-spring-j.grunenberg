@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import marcocarvalho.models.Aluno;
-import marcocarvalho.repositories.AlunosRepository;
+import joaogrunenberg.models.Aluno;
+import joaogrunenberg.repositories.AlunosRepository;
 
 @Controller
 @RequestMapping("/alunos")

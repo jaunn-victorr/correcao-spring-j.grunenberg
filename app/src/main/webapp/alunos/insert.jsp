@@ -16,7 +16,7 @@
         <form action="/alunos/insert" method="post">
             <div class="form-group">
                 <label for="nome">Nome</label>
-                <input class="form-control" type="text" name="nome" placeholder="Nome do Gênero" />
+                <input class="form-control" type="text" name="nome" placeholder="Nome do Aluno" />
             </div>
             <div class="form-group">
                 <label for="idade">Idade</label>
