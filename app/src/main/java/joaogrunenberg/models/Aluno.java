@@ -39,4 +39,8 @@ public class Aluno {
     public int getIdade() {
         return idade;
     }
+
+    public String getcurso() {
+        return curso;
+    }
 }
