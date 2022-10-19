@@ -40,7 +40,11 @@ public class Aluno {
         return idade;
     }
 
-    public String getcurso() {
-        return curso;
+    public void setCurso(String curso) {
+        this.curso = curso;
+    }
+
+    public String getCurso() {
+        return curso
     }
 }
