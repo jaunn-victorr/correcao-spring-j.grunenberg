@@ -46,7 +46,7 @@ public class ProfessorController {
     public String saveUpdate(
         @RequestParam("nome") String nome,
         @RequestParam("idade") int idade,
-        @RequestParam("componente) String componente,
+        @RequestParam("componente") String componente,
         @RequestParam("id") int id) {
             Optional<professor> aluno = alunosRepo.findById(id);
             aluno.get().setNome(nome);
@@ -68,4 +68,4 @@ public class ProfessorController {
         return "redirect:/professor/list";
     }
 }
-}
+
