@@ -1,5 +1,7 @@
 package joaogrunenberg.controllers;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,7 +17,7 @@ public class ProfessorController {
     @Autowired
     private ProfessorRepository professorRepo;
 
-    @RequestMapping("list")
+    @RequestMapping("/Professor")
     public String list(Model model) {
         model.addAttribute("Professor", this.professorRepo.findAll());
         return "list";
@@ -27,7 +29,7 @@ public class ProfessorController {
     }
 
     @RequestMapping(value = "insert", method = RequestMethod.POST)
-    public String insert(@RequestParam("nome") String nome, @RequestParam("idade") int idade, @RequestParam("componente") String curso) {
+    public String insert(@RequestParam("nome") String nome, @RequestParam("componente") String componente) {
         Professor professor = new Professor();
         professor.setNome(nome);
         professor.setComponente(componente);
@@ -37,7 +39,7 @@ public class ProfessorController {
 
     @RequestMapping("update/{id}")
     public String update(Model model, @PathVariable int id) {
-        Optional<Professor> professor = propfessorRepo.findById(id);
+        Optional<Professor> professor = professorRepo.findById(id);
         model.addAttribute("professor", professor.get());
         return "/alunos/update";
     }
@@ -45,13 +47,12 @@ public class ProfessorController {
     @RequestMapping(value = "update", method = RequestMethod.POST)
     public String saveUpdate(
         @RequestParam("nome") String nome,
-        @RequestParam("idade") int idade,
         @RequestParam("componente") String componente,
         @RequestParam("id") int id) {
-            Optional<professor> aluno = alunosRepo.findById(id);
-            aluno.get().setNome(nome);
-            aluno.get().setCurso(componente);
-            alunosRepo.save(professor.get());
+            Optional<professor> professor = professorRepo.findById(id);
+            professor.get().setNome(nome);
+            professor.get().setCurso(componente);
+            professorRepo.save(professor.get());
             return "redirect:/professor/list";
     }
     
@@ -64,7 +65,7 @@ public class ProfessorController {
 
     @RequestMapping(value = "delete", method = RequestMethod.POST)
     public String saveDelete(@RequestParam("id") int id) {
-        alunosRepo.deleteById(id);
+        professorRepo.deleteById(id);
         return "redirect:/professor/list";
     }
 }
