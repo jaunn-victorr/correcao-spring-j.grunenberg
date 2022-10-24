@@ -60,7 +60,7 @@ public class ProfessorController {
     public String delete(Model model, @PathVariable int id) {
         Optional<professor> professor = professorRepo.findById(id);
         model.addAttribute("professor", professor.get());
-        return "/alunos/delete";
+        return "/professor/delete";
     }
 
     @RequestMapping(value = "delete", method = RequestMethod.POST)
