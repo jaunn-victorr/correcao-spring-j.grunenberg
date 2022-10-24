@@ -45,6 +45,6 @@ public class Aluno {
     }
 
     public String getCurso() {
-        return curso
+        return curso;
     }
 }
